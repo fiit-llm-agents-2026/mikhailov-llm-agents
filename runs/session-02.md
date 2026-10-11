@@ -79,4 +79,4 @@ So quinoa fits both your gluten-free and lactose-free needs.
 
 ## Трейс Langfuse
 
-Выгрузка из UI Langfuse: [trace-90034539ff4e952238da7aaacb32b9c4.json](traces/trace-90034539ff4e952238da7aaacb32b9c4.json)
+Выгрузка из UI Langfuse: [trace-90034539ff4e952238da7aaacb32b9c4.json](traces/trace-session-2.json)

@@ -3,6 +3,10 @@ import os
 import re
 import sys
 
+from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_tool_call
+from langchain.chat_models import init_chat_model
+
 from db import PRODUCTS
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -12,6 +16,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
 from langfuse import get_client
 from langfuse.langchain import CallbackHandler
+from langchain.chat_models import init_chat_model
+from tools import TOOLS, print_schemas
 
 load_dotenv()
 
@@ -19,7 +25,7 @@ MODEL = os.environ["MODEL_CHEAP"]
 
 # TODO 1. Tool name, call format; the STOP rule stays separate
 SYSTEM = """
-You are agent-chef who is an expert in gluten, lactose food compound. 
+You are agent-chef who is an expert in food compound. 
 Your main goal is to find the available products for user who can't eat.
 
 MAIN RULE:
@@ -29,106 +35,41 @@ if you don't know the answer from tool, do not write any answer.
 """
 
 
-QUESTION = "Can I eat qenuia if I avoid gluten and lactose? \n"
+QUESTION = "I avoid gluten and lactose. Can I eat oat milk? If not, what else can I eat?"
 
 
-@tool
-def gluten_free(id: str) -> str:
-    """Returns the answer for the question: "Is this product gluten free?"
-       Takes id from tool find_product_by_name
-     Args:
-     id: product_id in PRODUCT database
-
-     Returns:
-         - "Yes" if this product is gluten free
-         - "No" if this product isn't gluten free
-         - "Don't know" if this product isn't in database
-    """
-
-    product = PRODUCTS.get(id, None)
-    if not product:
-        return "Don't know"
-    return "Yes" if product["gluten_free"] else "No"
+def chat_model(size: str = "cheap", **kwargs):
+    """A model object for the configured provider. A dozen lines, copy them once."""
+    name = os.environ[f"MODEL_{size.upper()}"]  # ids live in .env, never in code
+    secret = os.environ["LLM_API_KEY"]
+    if os.getenv("LLM_REASONING_EFFORT"):  # gpt-5.x: tools need reasoning "none"
+        kwargs.setdefault("reasoning_effort", os.environ["LLM_REASONING_EFFORT"])
+    # Gemini over OpenAI-compat drops the reasoning signature: turn two 400s
+    if os.getenv("LLM_PROVIDER", "openai_compat") == "google_genai":
+        return init_chat_model(f"google_genai:{name}", api_key=secret, **kwargs)
+    return init_chat_model(
+        f"openai:{name}", api_key=secret, base_url=os.environ["LLM_BASE_URL"], **kwargs
+    )
 
 
-@tool
-def lactose_free(id: str) -> str:
-    """Returns the answer for the question: "Is this product lactose free?"
-       Takes id from tool find_product_by_name
-     Args:
-     id: product_id in PRODUCT database
+@wrap_tool_call
+def log_tool_call(request, handler):
+    print(f"[tool] {request.tool_call['name']}({request.tool_call['args']})")
+    return handler(request)
 
-     Returns:
-         - "Yes" if this product is lactose free
-         - "No" if this product isn't lactose free
-         - "Don't know" if this product isn't in database
-    """
-    product = PRODUCTS.get(id, None)
-    if not product:
-        return "Don't know"
-    return "Yes" if product["lactose_free"] else "No"
+agent = create_agent(chat_model("cheap"), TOOLS, system_prompt=SYSTEM, middleware=[log_tool_call])
 
-
-@tool
-def find_product_by_name(product_name: str) -> str:
-    """Use it when you want tot find the product by name.
-     Args:
-     product_name: name of the product in database
-
-     Returns:
-        Returns the id of the product from database
-        if there is no product -> returns Unknown product {product_name}. Known products: {all_names}.
-    """
-    all_names = [product["name"] for product in PRODUCTS.values()]
-    for id, db_product in PRODUCTS.items():
-        if db_product["name"].strip().lower() == product_name.strip().lower():
-            return id
-    return f"Unknown product {product_name!r}. Known products: {all_names}."
-
-
-def should_continue(state: MessagesState) -> str:
-    last = state["messages"][-1]
-    if last.tool_calls:
-        return "tools"
-    return END
-
-
-def call_model(state: MessagesState) -> dict:
-    # Return the delta. A whole list here appends history to history.
-    return {"messages": [bound.invoke(state["messages"])]}
-
-
-tools = [gluten_free, find_product_by_name, lactose_free]
-
-llm = ChatOpenAI(
-    model=MODEL,
-    api_key=os.environ["LLM_API_KEY"],
-    base_url=os.environ["LLM_BASE_URL"],
-)
-
-bound = llm.bind_tools(tools)
-
-builder = StateGraph(MessagesState)
-builder.add_node("model", call_model)
-builder.add_node("tools", ToolNode(tools))
-builder.add_edge(START, 'model')
-builder.add_edge("tools", "model")
-builder.add_conditional_edges("model", should_continue, ["tools", END])
-
-manual = builder.compile()
-print(manual.get_graph().draw_mermaid())
-
-result = manual.invoke(
-    {"messages":
-        [
-            {"role": "system", "content": SYSTEM},
-            {"role": "user", "content": QUESTION}
+result = agent.invoke(
+    {
+        "messages": [
+            {"role": "user", "content": QUESTION},
         ],
     },
-    config={"recursion_limit": 8, 'callbacks': [CallbackHandler()]},
+    config={"recursion_limit": 8, "callbacks": [CallbackHandler()]},
 )
 get_client().flush()
 
+print_schemas()
 
 for m in result["messages"]:
     m.pretty_print()
