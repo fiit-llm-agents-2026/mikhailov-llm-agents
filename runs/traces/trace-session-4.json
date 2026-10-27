@@ -1,0 +1,4236 @@
+{
+  "trace": {
+    "id": "bf5276442b4628bb85c8ff34228f79d1",
+    "timestamp": "2026-10-27T13:41:10.866000Z",
+    "name": "LangGraph",
+    "input": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Is buckwheat ok for me?"
+        }
+      ]
+    },
+    "output": {
+      "messages": [
+        {
+          "content": "Here is a summary of the conversation to date:\n\n## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+          "additional_kwargs": {
+            "lc_source": "summarization"
+          },
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "3ab6ce1c-9941-4b9d-b744-9f0db02b173a"
+        },
+        {
+          "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 139,
+              "prompt_tokens": 1016,
+              "total_tokens": 1155,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 768,
+                "video_tokens": 0
+              },
+              "server_tool_use": null,
+              "cost_rub": 0.01301444,
+              "cost": 0.01301444,
+              "plugins": null
+            },
+            "model_provider": "openai",
+            "model_name": "deepseek/deepseek-v4.1-flash",
+            "system_fingerprint": null,
+            "id": "gen_2226355286296498177",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1016,
+            "output_tokens": 139,
+            "total_tokens": 1155,
+            "input_token_details": {
+              "audio": 0,
+              "cache_creation": 0,
+              "cache_read": 768
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "What about flour?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+        },
+        {
+          "content": "Let me check the status of flour for you.\n\n",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 49,
+              "prompt_tokens": 1162,
+              "total_tokens": 1211,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 1024,
+                "video_tokens": 0
+              },
+              "server_tool_use": null,
+              "cost_rub": 0.00585835,
+              "cost": 0.00585835,
+              "plugins": null
+            },
+            "model_provider": "openai",
+            "model_name": "deepseek/deepseek-v4.1-flash",
+            "system_fingerprint": null,
+            "id": "gen_2226355299274461185",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+          "tool_calls": [
+            {
+              "name": "food_check",
+              "args": {
+                "product_name": "flour"
+              },
+              "id": "chatcmpl-tool-8af21f20fbe0e992",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1162,
+            "output_tokens": 49,
+            "total_tokens": 1211,
+            "input_token_details": {
+              "audio": 0,
+              "cache_creation": 0,
+              "cache_read": 1024
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "flour: gluten-free: False lactose-free: True vegan: True",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "food_check",
+          "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+          "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 123,
+              "prompt_tokens": 1236,
+              "total_tokens": 1359,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "video_tokens": 0
+              },
+              "server_tool_use": null,
+              "cost_rub": 0.02748591,
+              "cost": 0.02748591,
+              "plugins": null
+            },
+            "model_provider": "openai",
+            "model_name": "deepseek/deepseek-v4.1-flash",
+            "system_fingerprint": null,
+            "id": "gen_2226355304675807233",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1236,
+            "output_tokens": 123,
+            "total_tokens": 1359,
+            "input_token_details": {
+              "audio": 0,
+              "cache_creation": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "Is buckwheat ok for me?",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "human",
+          "name": null,
+          "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+        },
+        {
+          "content": "Let me check buckwheat for you.\n\n",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 50,
+              "prompt_tokens": 1370,
+              "total_tokens": 1420,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 1280,
+                "video_tokens": 0
+              },
+              "server_tool_use": null,
+              "cost_rub": 0.00534115,
+              "cost": 0.00534115,
+              "plugins": null
+            },
+            "model_provider": "openai",
+            "model_name": "deepseek/deepseek-v4.1-flash",
+            "system_fingerprint": null,
+            "id": "gen_2226355313023127553",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a17d97-ec58-71b1-9c05-6d54f6a1353a-0",
+          "tool_calls": [
+            {
+              "name": "food_check",
+              "args": {
+                "product_name": "buckwheat"
+              },
+              "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1370,
+            "output_tokens": 50,
+            "total_tokens": 1420,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 1280,
+              "cache_creation": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        },
+        {
+          "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+          "additional_kwargs": {},
+          "response_metadata": {},
+          "type": "tool",
+          "name": "food_check",
+          "id": "8ee529f5-463e-466c-b4e8-4aa491622eef",
+          "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+          "artifact": null,
+          "status": "success"
+        },
+        {
+          "content": "Great news! **Buckwheat is safe for you.** Here's the breakdown:\n\n- ✅ **Gluten-free:** True\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nBuckwheat fits all three of your dietary needs. Despite its name, buckwheat is not actually a wheat and contains no gluten — it's a great flour alternative for you.\n\nWould you like me to check any other products?",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 92,
+              "prompt_tokens": 1390,
+              "total_tokens": 1482,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "video_tokens": 0
+              },
+              "server_tool_use": null,
+              "cost_rub": 0.01620473,
+              "cost": 0.01620473,
+              "plugins": null
+            },
+            "model_provider": "openai",
+            "model_name": "deepseek/deepseek-v4.1-flash",
+            "system_fingerprint": null,
+            "id": "gen_2226355328696586241",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a17d97-fbd4-7f53-af23-59380c49d011-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 1390,
+            "output_tokens": 92,
+            "total_tokens": 1482,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 0,
+              "cache_creation": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        }
+      ]
+    },
+    "sessionId": "load-summary",
+    "metadata": {
+      "ls_integration": "langchain_create_agent",
+      "thread_id": "load-summary",
+      "resourceAttributes": {
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.44.0",
+        "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+        "service.name": "unknown_service"
+      },
+      "scope": {
+        "name": "langfuse-sdk",
+        "version": "4.15.4",
+        "attributes": {
+          "public_key": "pk-lf-REDACTED"
+        }
+      },
+      "is_langchain_root": true
+    },
+    "tags": [],
+    "public": false,
+    "environment": "default",
+    "htmlPath": "/project/assistant/traces/bf5276442b4628bb85c8ff34228f79d1",
+    "latency": 5.53,
+    "totalCost": 0.0,
+    "scores": [],
+    "projectId": "assistant",
+    "bookmarked": false,
+    "createdAt": "2026-10-27T13:41:12.354Z",
+    "updatedAt": "2026-10-27T13:41:17.450Z",
+    "release": null,
+    "version": null,
+    "userId": null,
+    "externalId": null
+  },
+  "observations": [
+    {
+      "id": "aa9807550ed8747a",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "LangGraph",
+      "startTime": "2026-10-27T13:41:10.864000Z",
+      "endTime": "2026-10-27T13:41:16.394000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Is buckwheat ok for me?"
+          }
+        ]
+      },
+      "metadata": {
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "is_langchain_root": true,
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "Here is a summary of the conversation to date:\n\n## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+            "additional_kwargs": {
+              "lc_source": "summarization"
+            },
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3ab6ce1c-9941-4b9d-b744-9f0db02b173a"
+          },
+          {
+            "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 1016,
+                "total_tokens": 1155,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01301444,
+                "cost": 0.01301444,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355286296498177",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1016,
+              "output_tokens": 139,
+              "total_tokens": 1155,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "What about flour?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+          },
+          {
+            "content": "Let me check the status of flour for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 49,
+                "prompt_tokens": 1162,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1024,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00585835,
+                "cost": 0.00585835,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355299274461185",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "flour"
+                },
+                "id": "chatcmpl-tool-8af21f20fbe0e992",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1162,
+              "output_tokens": 49,
+              "total_tokens": 1211,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 1024
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "flour: gluten-free: False lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+            "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 123,
+                "prompt_tokens": 1236,
+                "total_tokens": 1359,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02748591,
+                "cost": 0.02748591,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355304675807233",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1236,
+              "output_tokens": 123,
+              "total_tokens": 1359,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Is buckwheat ok for me?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+          },
+          {
+            "content": "Let me check buckwheat for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1370,
+                "total_tokens": 1420,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1280,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00534115,
+                "cost": 0.00534115,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355313023127553",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ec58-71b1-9c05-6d54f6a1353a-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "buckwheat"
+                },
+                "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1370,
+              "output_tokens": 50,
+              "total_tokens": 1420,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 1280,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "8ee529f5-463e-466c-b4e8-4aa491622eef",
+            "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Great news! **Buckwheat is safe for you.** Here's the breakdown:\n\n- ✅ **Gluten-free:** True\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nBuckwheat fits all three of your dietary needs. Despite its name, buckwheat is not actually a wheat and contains no gluten — it's a great flour alternative for you.\n\nWould you like me to check any other products?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 92,
+                "prompt_tokens": 1390,
+                "total_tokens": 1482,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01620473,
+                "cost": 0.01620473,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355328696586241",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-fbd4-7f53-af23-59380c49d011-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1390,
+              "output_tokens": 92,
+              "total_tokens": 1482,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 0,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 5.53,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.427Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "parentObservationId": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "775b942e66e74cef",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "tools",
+      "startTime": "2026-10-27T13:41:13.060000Z",
+      "endTime": "2026-10-27T13:41:13.063000Z",
+      "modelParameters": {},
+      "input": [
+        {
+          "name": "food_check",
+          "args": {
+            "product_name": "buckwheat"
+          },
+          "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+          "type": "tool_call"
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "graph:step:24"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 24,
+        "langgraph_node": "tools",
+        "langgraph_triggers": [
+          "__pregel_push"
+        ],
+        "langgraph_path": [
+          "__pregel_push",
+          0,
+          false
+        ],
+        "langgraph_checkpoint_ns": "tools:61611a0e-1499-8c4a-991e-7d3f9a38c0a8",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "8ee529f5-463e-466c-b4e8-4aa491622eef",
+            "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "aa9807550ed8747a",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.003,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.426Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "34cf89224e06edf3",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "GENERATION",
+      "name": "ChatOpenAI",
+      "startTime": "2026-10-27T13:41:14.836000Z",
+      "endTime": "2026-10-27T13:41:16.389000Z",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelParameters": {},
+      "input": [
+        {
+          "role": "system",
+          "content": "\nYou are agent-chef who is an expert in food compound.\nYour main goal is to find the available products for user who can't eat.\n\nMAIN RULE:\nYou cant't find the products by yourself. You must use the tool to find it.\nYou cant't give any recommendations without tool calling.\nif you don't know the answer from tool, do not write any answer.\n"
+        },
+        {
+          "role": "user",
+          "content": "Here is a summary of the conversation to date:\n\n## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+          "additional_kwargs": {
+            "lc_source": "summarization"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "What about flour?"
+        },
+        {
+          "role": "assistant",
+          "content": "Let me check the status of flour for you.\n\n",
+          "tool_calls": [
+            {
+              "name": "food_check",
+              "args": {
+                "product_name": "flour"
+              },
+              "id": "chatcmpl-tool-8af21f20fbe0e992",
+              "type": "tool_call"
+            }
+          ],
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "tool",
+          "content": "flour: gluten-free: False lactose-free: True vegan: True",
+          "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992"
+        },
+        {
+          "role": "assistant",
+          "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "Is buckwheat ok for me?"
+        },
+        {
+          "role": "assistant",
+          "content": "Let me check buckwheat for you.\n\n",
+          "tool_calls": [
+            {
+              "name": "food_check",
+              "args": {
+                "product_name": "buckwheat"
+              },
+              "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+              "type": "tool_call"
+            }
+          ],
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "tool",
+          "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+          "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba"
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_search",
+              "description": "Search for products based on gluten and lactose free criteria.",
+              "parameters": {
+                "properties": {
+                  "gluten_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be gluten-free."
+                  },
+                  "lactose_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be lactose-free."
+                  },
+                  "vegan": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be vegan."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_check",
+              "description": "Check the gluten and lactose free and vegan status of a product.",
+              "parameters": {
+                "properties": {
+                  "product_name": {
+                    "description": "The name of the product to check.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "product_name"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_rnd_basket",
+              "description": "Return n random products.",
+              "parameters": {
+                "properties": {
+                  "n": {
+                    "description": "How many products to return.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "n"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_chat_model",
+        "thread_id": "load-summary",
+        "langgraph_step": 26,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:691ec360-5fc9-9204-162e-e4b908796911",
+        "checkpoint_ns": "model:691ec360-5fc9-9204-162e-e4b908796911",
+        "ls_provider": "openai",
+        "ls_model_name": "deepseek/deepseek-v4.1-flash@reasoning_effort=none",
+        "ls_model_type": "chat",
+        "lc_versions": {
+          "langchain-core": "1.6.4",
+          "langchain": "1.4.2",
+          "langchain-openai": "1.6.4"
+        },
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "role": "assistant",
+        "content": "Great news! **Buckwheat is safe for you.** Here's the breakdown:\n\n- ✅ **Gluten-free:** True\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nBuckwheat fits all three of your dietary needs. Despite its name, buckwheat is not actually a wheat and contains no gluten — it's a great flour alternative for you.\n\nWould you like me to check any other products?",
+        "additional_kwargs": {
+          "refusal": null
+        }
+      },
+      "usage": {
+        "input": 1390,
+        "output": 92,
+        "total": 1482,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "8c6b22d03d171350",
+      "usageDetails": {
+        "input": 1390,
+        "output": 92,
+        "total": 1482,
+        "input_audio": 0,
+        "input_cache_read": 0,
+        "input_cache_creation": 0,
+        "output_audio": 0,
+        "output_reasoning": 0
+      },
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.553,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.426Z",
+      "unit": "TOKENS",
+      "promptTokens": 1390,
+      "completionTokens": 92,
+      "totalTokens": 1482,
+      "completionStartTime": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "58dbf725d778891a",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "GENERATION",
+      "name": "ChatOpenAI",
+      "startTime": "2026-10-27T13:41:13.068000Z",
+      "endTime": "2026-10-27T13:41:14.831000Z",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelParameters": {},
+      "input": [
+        {
+          "role": "user",
+          "content": "<role>\nContext Extraction Assistant\n</role>\n\n<primary_objective>\nYour sole objective in this task is to extract the highest quality/most relevant context from the conversation history below.\n</primary_objective>\n\n<objective_information>\nYou're nearing the total number of input tokens you can accept, so you must extract the highest quality/most relevant pieces of information from your conversation history.\nThis context will then overwrite the conversation history presented below. Because of this, ensure the context you extract is only the most important information to continue working toward your overall goal.\n</objective_information>\n\n<instructions>\nThe conversation history below will be replaced with the context you extract in this step.\nYou want to ensure that you don't repeat any actions you've already completed, so the context you extract from the conversation history should be focused on the most important information to your overall goal.\n\nYou should structure your summary using the following sections. Each section acts as a checklist - you must populate it with relevant information or explicitly state \"None\" if there is nothing to report for that section:\n\n## SESSION INTENT\n\nWhat is the user's primary goal or request? What overall task are you trying to accomplish? This should be concise but complete enough to understand the purpose of the entire session.\n\n## SUMMARY\n\nExtract and record all of the most important context from the conversation history. Include important choices, conclusions, or strategies determined during this conversation. Include the reasoning behind key decisions. Document any rejected options and why they were not pursued.\n\n## ARTIFACTS\n\nWhat artifacts, files, or resources were created, modified, or accessed during this conversation? For file modifications, list specific file paths and briefly describe the changes made to each. This section prevents silent loss of artifact information.\n\n## NEXT STEPS\n\nWhat specific tasks remain to be completed to achieve the session intent? What should you do next?\n\n</instructions>\n\nThe user will message you with the full message history from which you'll extract context to create a replacement. Carefully read through it all and think deeply about what information is most important to your overall goal and should be saved:\n\nWith all of this in mind, please carefully read over the entire conversation history, and extract the most important and relevant context to replace it so that you can free up space in the conversation history.\nRespond ONLY with the extracted context. Do not include any additional information, or text before or after the extracted context.\n\n<messages>\nMessages to summarize:\n<message type=\"human\">Hi! I avoid gluten and lactose, and I am vegan.</message>\n<message type=\"ai\">\n  <content>I can help you find products that fit your dietary needs! Let me search for products that are gluten-free, lactose-free, and vegan.\n\n</content>\n  <tool_call id=\"call-dd54906d-7b32-4311-b830-7b6c135547ef\" name=\"food_search\">{\"gluten_free\": true, \"lactose_free\": true, \"vegan\": true}</tool_call>\n</message>\n<message type=\"tool\">buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk</message>\n<message type=\"ai\">Here are the products that fit all your dietary needs (gluten-free, lactose-free, and vegan):\n\n**Gluten-free grains &amp; flours:**\n- Buckwheat\n- Quinoa\n- Millet\n- Amaranth\n- Teff\n- Sorghum\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\n**Noodles &amp; wrappers:**\n- Corn tortilla\n- Rice noodles\n- Glass noodles\n- Rice paper\n\n**Condiments &amp; other:**\n- Tamari\n- Psyllium husk\n- Sago\n- Almond milk\n\nAll of these are safe for you since they're gluten-free, lactose-free, and vegan. Would you like me to check any specific product or help you narrow down the list further?</message>\n<message type=\"human\">Can I eat bread?</message>\n<message type=\"ai\">\n  <content>Let me check the status of bread for you.\n\n</content>\n  <tool_call id=\"chatcmpl-tool-bac8fce602e77c26\" name=\"food_check\">{\"product_name\": \"bread\"}</tool_call>\n</message>\n<message type=\"tool\">bread: gluten-free: False lactose-free: False vegan: True</message>\n</messages>"
+        }
+      ],
+      "metadata": {
+        "ls_integration": "langchain_chat_model",
+        "thread_id": "load-summary",
+        "langgraph_step": 25,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:24ae5e16-a252-87b9-8645-1a346a603463",
+        "lc_source": "summarization",
+        "lc_internal_call": "c61e6b025ce877e98556e6f4e56bab73",
+        "checkpoint_ns": "SummarizationMiddleware.before_model:24ae5e16-a252-87b9-8645-1a346a603463",
+        "ls_provider": "openai",
+        "ls_model_name": "deepseek/deepseek-v4.1-flash@reasoning_effort=none",
+        "ls_model_type": "chat",
+        "lc_versions": {
+          "langchain-core": "1.6.4",
+          "langchain": "1.4.2",
+          "langchain-openai": "1.6.4"
+        },
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "role": "assistant",
+        "content": "## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+        "additional_kwargs": {
+          "refusal": null
+        }
+      },
+      "usage": {
+        "input": 979,
+        "output": 374,
+        "total": 1353,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "031d70bb95a351d7",
+      "usageDetails": {
+        "input": 979,
+        "output": 374,
+        "total": 1353,
+        "input_audio": 0,
+        "input_cache_read": 0,
+        "input_cache_creation": 0,
+        "output_audio": 0,
+        "output_reasoning": 0
+      },
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.763,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.426Z",
+      "unit": "TOKENS",
+      "promptTokens": 979,
+      "completionTokens": 374,
+      "totalTokens": 1353,
+      "completionStartTime": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "6b0007fce8e86c6a",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "SummarizationMiddleware.before_model",
+      "startTime": "2026-10-27T13:41:13.064000Z",
+      "endTime": "2026-10-27T13:41:14.834000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Hi! I avoid gluten and lactose, and I am vegan.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "4bfcabeb-8313-4ae9-a3a1-d604770bb7b7"
+          },
+          {
+            "content": "I can help you find products that fit your dietary needs! Let me search for products that are gluten-free, lactose-free, and vegan.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 103,
+                "prompt_tokens": 590,
+                "total_tokens": 693,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00818306,
+                "cost": 0.00818306,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355256718659585",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-b6cc-7863-bd4d-f6815143c008-0",
+            "tool_calls": [
+              {
+                "name": "food_search",
+                "args": {
+                  "gluten_free": true,
+                  "lactose_free": true,
+                  "vegan": true
+                },
+                "id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 590,
+              "output_tokens": 103,
+              "total_tokens": 693,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "b240d0ee-9880-4990-b7ab-1da0f1a74bff",
+            "tool_call_id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here are the products that fit all your dietary needs (gluten-free, lactose-free, and vegan):\n\n**Gluten-free grains & flours:**\n- Buckwheat\n- Quinoa\n- Millet\n- Amaranth\n- Teff\n- Sorghum\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\n**Noodles & wrappers:**\n- Corn tortilla\n- Rice noodles\n- Glass noodles\n- Rice paper\n\n**Condiments & other:**\n- Tamari\n- Psyllium husk\n- Sago\n- Almond milk\n\nAll of these are safe for you since they're gluten-free, lactose-free, and vegan. Would you like me to check any specific product or help you narrow down the list further?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 169,
+                "prompt_tokens": 767,
+                "total_tokens": 936,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 512,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01489987,
+                "cost": 0.01489987,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355268425224193",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-c371-7151-bd7b-c96c62b76d37-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 767,
+              "output_tokens": 169,
+              "total_tokens": 936,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 512
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Can I eat bread?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "6db643f2-d7b7-4870-9c39-f23bfe1acc6b"
+          },
+          {
+            "content": "Let me check the status of bread for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 48,
+                "prompt_tokens": 944,
+                "total_tokens": 992,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 896,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00462643,
+                "cost": 0.00462643,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355278738493441",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ccfb-7d63-aef4-cebfe609c6fc-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "bread"
+                },
+                "id": "chatcmpl-tool-bac8fce602e77c26",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 944,
+              "output_tokens": 48,
+              "total_tokens": 992,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 896
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "bread: gluten-free: False lactose-free: False vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "a8e8499a-e795-4a65-b0c5-bf47bae77a5f",
+            "tool_call_id": "chatcmpl-tool-bac8fce602e77c26",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 1016,
+                "total_tokens": 1155,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01301444,
+                "cost": 0.01301444,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355286296498177",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1016,
+              "output_tokens": 139,
+              "total_tokens": 1155,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "What about flour?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+          },
+          {
+            "content": "Let me check the status of flour for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 49,
+                "prompt_tokens": 1162,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1024,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00585835,
+                "cost": 0.00585835,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355299274461185",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "flour"
+                },
+                "id": "chatcmpl-tool-8af21f20fbe0e992",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1162,
+              "output_tokens": 49,
+              "total_tokens": 1211,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 1024
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "flour: gluten-free: False lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+            "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 123,
+                "prompt_tokens": 1236,
+                "total_tokens": 1359,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02748591,
+                "cost": 0.02748591,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355304675807233",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1236,
+              "output_tokens": 123,
+              "total_tokens": 1359,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Is buckwheat ok for me?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+          },
+          {
+            "content": "Let me check buckwheat for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1370,
+                "total_tokens": 1420,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1280,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00534115,
+                "cost": 0.00534115,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355313023127553",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ec58-71b1-9c05-6d54f6a1353a-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "buckwheat"
+                },
+                "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1370,
+              "output_tokens": 50,
+              "total_tokens": 1420,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 1280,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "8ee529f5-463e-466c-b4e8-4aa491622eef",
+            "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:25"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 25,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:24ae5e16-a252-87b9-8645-1a346a603463",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "remove",
+            "name": null,
+            "id": "__remove_all__"
+          },
+          {
+            "content": "Here is a summary of the conversation to date:\n\n## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+            "additional_kwargs": {
+              "lc_source": "summarization"
+            },
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 1016,
+                "total_tokens": 1155,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01301444,
+                "cost": 0.01301444,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355286296498177",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1016,
+              "output_tokens": 139,
+              "total_tokens": 1155,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "What about flour?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+          },
+          {
+            "content": "Let me check the status of flour for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 49,
+                "prompt_tokens": 1162,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1024,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00585835,
+                "cost": 0.00585835,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355299274461185",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "flour"
+                },
+                "id": "chatcmpl-tool-8af21f20fbe0e992",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1162,
+              "output_tokens": 49,
+              "total_tokens": 1211,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 1024
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "flour: gluten-free: False lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+            "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 123,
+                "prompt_tokens": 1236,
+                "total_tokens": 1359,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02748591,
+                "cost": 0.02748591,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355304675807233",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1236,
+              "output_tokens": 123,
+              "total_tokens": 1359,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Is buckwheat ok for me?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+          },
+          {
+            "content": "Let me check buckwheat for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1370,
+                "total_tokens": 1420,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1280,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00534115,
+                "cost": 0.00534115,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355313023127553",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ec58-71b1-9c05-6d54f6a1353a-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "buckwheat"
+                },
+                "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1370,
+              "output_tokens": 50,
+              "total_tokens": 1420,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 1280,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "8ee529f5-463e-466c-b4e8-4aa491622eef",
+            "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "aa9807550ed8747a",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.77,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.425Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "8c6b22d03d171350",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "model",
+      "startTime": "2026-10-27T13:41:14.835000Z",
+      "endTime": "2026-10-27T13:41:16.390000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Here is a summary of the conversation to date:\n\n## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+            "additional_kwargs": {
+              "lc_source": "summarization"
+            },
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3ab6ce1c-9941-4b9d-b744-9f0db02b173a"
+          },
+          {
+            "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 1016,
+                "total_tokens": 1155,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01301444,
+                "cost": 0.01301444,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355286296498177",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1016,
+              "output_tokens": 139,
+              "total_tokens": 1155,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "What about flour?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+          },
+          {
+            "content": "Let me check the status of flour for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 49,
+                "prompt_tokens": 1162,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1024,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00585835,
+                "cost": 0.00585835,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355299274461185",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "flour"
+                },
+                "id": "chatcmpl-tool-8af21f20fbe0e992",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1162,
+              "output_tokens": 49,
+              "total_tokens": 1211,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 1024
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "flour: gluten-free: False lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+            "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 123,
+                "prompt_tokens": 1236,
+                "total_tokens": 1359,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02748591,
+                "cost": 0.02748591,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355304675807233",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1236,
+              "output_tokens": 123,
+              "total_tokens": 1359,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Is buckwheat ok for me?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+          },
+          {
+            "content": "Let me check buckwheat for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 50,
+                "prompt_tokens": 1370,
+                "total_tokens": 1420,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1280,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00534115,
+                "cost": 0.00534115,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355313023127553",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ec58-71b1-9c05-6d54f6a1353a-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "buckwheat"
+                },
+                "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1370,
+              "output_tokens": 50,
+              "total_tokens": 1420,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 1280,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "8ee529f5-463e-466c-b4e8-4aa491622eef",
+            "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:26"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 26,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:691ec360-5fc9-9204-162e-e4b908796911",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": [
+        {
+          "graph": null,
+          "update": {
+            "messages": [
+              {
+                "content": "Great news! **Buckwheat is safe for you.** Here's the breakdown:\n\n- ✅ **Gluten-free:** True\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nBuckwheat fits all three of your dietary needs. Despite its name, buckwheat is not actually a wheat and contains no gluten — it's a great flour alternative for you.\n\nWould you like me to check any other products?",
+                "additional_kwargs": {
+                  "refusal": null
+                },
+                "response_metadata": {
+                  "token_usage": {
+                    "completion_tokens": 92,
+                    "prompt_tokens": 1390,
+                    "total_tokens": 1482,
+                    "completion_tokens_details": {
+                      "accepted_prediction_tokens": null,
+                      "audio_tokens": 0,
+                      "reasoning_tokens": 0,
+                      "rejected_prediction_tokens": null,
+                      "image_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                      "audio_tokens": 0,
+                      "cache_write_tokens": 0,
+                      "cached_tokens": 0,
+                      "video_tokens": 0
+                    },
+                    "server_tool_use": null,
+                    "cost_rub": 0.01620473,
+                    "cost": 0.01620473,
+                    "plugins": null
+                  },
+                  "model_provider": "openai",
+                  "model_name": "deepseek/deepseek-v4.1-flash",
+                  "system_fingerprint": null,
+                  "id": "gen_2226355328696586241",
+                  "finish_reason": "stop",
+                  "logprobs": null
+                },
+                "type": "ai",
+                "name": null,
+                "id": "lc_run--01a17d97-fbd4-7f53-af23-59380c49d011-0",
+                "tool_calls": [],
+                "invalid_tool_calls": [],
+                "usage_metadata": {
+                  "input_tokens": 1390,
+                  "output_tokens": 92,
+                  "total_tokens": 1482,
+                  "input_token_details": {
+                    "audio": 0,
+                    "cache_read": 0,
+                    "cache_creation": 0
+                  },
+                  "output_token_details": {
+                    "audio": 0,
+                    "reasoning": 0
+                  }
+                }
+              }
+            ]
+          },
+          "resume": null,
+          "goto": []
+        }
+      ],
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "aa9807550ed8747a",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.555,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.425Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "63335e65d921a005",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "TOOL",
+      "name": "food_check",
+      "startTime": "2026-10-27T13:41:13.062000Z",
+      "endTime": "2026-10-27T13:41:13.063000Z",
+      "modelParameters": {},
+      "input": {
+        "product_name": "buckwheat"
+      },
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 24,
+        "langgraph_node": "tools",
+        "langgraph_triggers": [
+          "__pregel_push"
+        ],
+        "langgraph_path": [
+          "__pregel_push",
+          0,
+          false
+        ],
+        "langgraph_checkpoint_ns": "tools:61611a0e-1499-8c4a-991e-7d3f9a38c0a8",
+        "checkpoint_ns": "tools:61611a0e-1499-8c4a-991e-7d3f9a38c0a8",
+        "color": "green",
+        "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "content": "buckwheat: gluten-free: True lactose-free: True vegan: True",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "food_check",
+        "id": null,
+        "tool_call_id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+        "artifact": null,
+        "status": "success"
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "775b942e66e74cef",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.001,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.425Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "031d70bb95a351d7",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "ChatOpenAI",
+      "startTime": "2026-10-27T13:41:13.067000Z",
+      "endTime": "2026-10-27T13:41:14.832000Z",
+      "modelParameters": {},
+      "input": "<role>\nContext Extraction Assistant\n</role>\n\n<primary_objective>\nYour sole objective in this task is to extract the highest quality/most relevant context from the conversation history below.\n</primary_objective>\n\n<objective_information>\nYou're nearing the total number of input tokens you can accept, so you must extract the highest quality/most relevant pieces of information from your conversation history.\nThis context will then overwrite the conversation history presented below. Because of this, ensure the context you extract is only the most important information to continue working toward your overall goal.\n</objective_information>\n\n<instructions>\nThe conversation history below will be replaced with the context you extract in this step.\nYou want to ensure that you don't repeat any actions you've already completed, so the context you extract from the conversation history should be focused on the most important information to your overall goal.\n\nYou should structure your summary using the following sections. Each section acts as a checklist - you must populate it with relevant information or explicitly state \"None\" if there is nothing to report for that section:\n\n## SESSION INTENT\n\nWhat is the user's primary goal or request? What overall task are you trying to accomplish? This should be concise but complete enough to understand the purpose of the entire session.\n\n## SUMMARY\n\nExtract and record all of the most important context from the conversation history. Include important choices, conclusions, or strategies determined during this conversation. Include the reasoning behind key decisions. Document any rejected options and why they were not pursued.\n\n## ARTIFACTS\n\nWhat artifacts, files, or resources were created, modified, or accessed during this conversation? For file modifications, list specific file paths and briefly describe the changes made to each. This section prevents silent loss of artifact information.\n\n## NEXT STEPS\n\nWhat specific tasks remain to be completed to achieve the session intent? What should you do next?\n\n</instructions>\n\nThe user will message you with the full message history from which you'll extract context to create a replacement. Carefully read through it all and think deeply about what information is most important to your overall goal and should be saved:\n\nWith all of this in mind, please carefully read over the entire conversation history, and extract the most important and relevant context to replace it so that you can free up space in the conversation history.\nRespond ONLY with the extracted context. Do not include any additional information, or text before or after the extracted context.\n\n<messages>\nMessages to summarize:\n<message type=\"human\">Hi! I avoid gluten and lactose, and I am vegan.</message>\n<message type=\"ai\">\n  <content>I can help you find products that fit your dietary needs! Let me search for products that are gluten-free, lactose-free, and vegan.\n\n</content>\n  <tool_call id=\"call-dd54906d-7b32-4311-b830-7b6c135547ef\" name=\"food_search\">{\"gluten_free\": true, \"lactose_free\": true, \"vegan\": true}</tool_call>\n</message>\n<message type=\"tool\">buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk</message>\n<message type=\"ai\">Here are the products that fit all your dietary needs (gluten-free, lactose-free, and vegan):\n\n**Gluten-free grains &amp; flours:**\n- Buckwheat\n- Quinoa\n- Millet\n- Amaranth\n- Teff\n- Sorghum\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\n**Noodles &amp; wrappers:**\n- Corn tortilla\n- Rice noodles\n- Glass noodles\n- Rice paper\n\n**Condiments &amp; other:**\n- Tamari\n- Psyllium husk\n- Sago\n- Almond milk\n\nAll of these are safe for you since they're gluten-free, lactose-free, and vegan. Would you like me to check any specific product or help you narrow down the list further?</message>\n<message type=\"human\">Can I eat bread?</message>\n<message type=\"ai\">\n  <content>Let me check the status of bread for you.\n\n</content>\n  <tool_call id=\"chatcmpl-tool-bac8fce602e77c26\" name=\"food_check\">{\"product_name\": \"bread\"}</tool_call>\n</message>\n<message type=\"tool\">bread: gluten-free: False lactose-free: False vegan: True</message>\n</messages>",
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 25,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:24ae5e16-a252-87b9-8645-1a346a603463",
+        "lc_source": "summarization",
+        "lc_internal_call": "c61e6b025ce877e98556e6f4e56bab73",
+        "checkpoint_ns": "SummarizationMiddleware.before_model:24ae5e16-a252-87b9-8645-1a346a603463",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "content": "## SESSION INTENT\n\nThe user wants to find food products that fit their dietary restrictions: gluten-free, lactose-free, and vegan. They are asking specific questions about what they can and cannot eat.\n\n## SUMMARY\n\n- User's dietary profile: avoids gluten and lactose, and is vegan (requires products that are simultaneously gluten-free, lactose-free, and vegan).\n- Successfully retrieved a list of compliant products via `food_search` with all three filters enabled: buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk.\n- User then asked \"Can I eat bread?\"\n- A `food_check` call for \"bread\" returned: gluten-free: False, lactose-free: False, vegan: True. This means bread is NOT safe for the user because it contains gluten and lactose (even though it is vegan).\n\nKey conclusion: Bread is not suitable for the user's dietary needs.\n\n## ARTIFACTS\n\nNone. No files were created or modified. Tool calls used: `food_search` (with filters gluten_free, lactose_free, vegan) and `food_check` (product \"bread\").\n\n## NEXT STEPS\n\n- Respond to the user's question about bread by clearly stating that bread does NOT fit their dietary needs (contains gluten and lactose), based on the `food_check` result.\n- Optionally suggest compliant alternatives (e.g., gluten-free bread options from the earlier list, though no specific bread alternative has been confirmed yet — may need a `food_search` targeting gluten-free/lactose-free/vegan bread substitutes).\n- Await further dietary questions from the user.",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 374,
+            "prompt_tokens": 979,
+            "total_tokens": 1353,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null,
+              "image_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": 0,
+              "cached_tokens": 0,
+              "video_tokens": 0
+            },
+            "server_tool_use": null,
+            "cost_rub": 0.08481191,
+            "cost": 0.08481191,
+            "plugins": null
+          },
+          "model_provider": "openai",
+          "model_name": "deepseek/deepseek-v4.1-flash",
+          "system_fingerprint": null,
+          "id": "gen_2226355321188913153",
+          "finish_reason": "stop",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a17d97-f4ec-79b3-98b7-18d13da4e71c-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 979,
+          "output_tokens": 374,
+          "total_tokens": 1353,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "6b0007fce8e86c6a",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.765,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.424Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "13a97ec0c764da17",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "model",
+      "startTime": "2026-10-27T13:41:10.869000Z",
+      "endTime": "2026-10-27T13:41:13.058000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Hi! I avoid gluten and lactose, and I am vegan.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "4bfcabeb-8313-4ae9-a3a1-d604770bb7b7"
+          },
+          {
+            "content": "I can help you find products that fit your dietary needs! Let me search for products that are gluten-free, lactose-free, and vegan.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 103,
+                "prompt_tokens": 590,
+                "total_tokens": 693,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00818306,
+                "cost": 0.00818306,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355256718659585",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-b6cc-7863-bd4d-f6815143c008-0",
+            "tool_calls": [
+              {
+                "name": "food_search",
+                "args": {
+                  "gluten_free": true,
+                  "lactose_free": true,
+                  "vegan": true
+                },
+                "id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 590,
+              "output_tokens": 103,
+              "total_tokens": 693,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "b240d0ee-9880-4990-b7ab-1da0f1a74bff",
+            "tool_call_id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here are the products that fit all your dietary needs (gluten-free, lactose-free, and vegan):\n\n**Gluten-free grains & flours:**\n- Buckwheat\n- Quinoa\n- Millet\n- Amaranth\n- Teff\n- Sorghum\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\n**Noodles & wrappers:**\n- Corn tortilla\n- Rice noodles\n- Glass noodles\n- Rice paper\n\n**Condiments & other:**\n- Tamari\n- Psyllium husk\n- Sago\n- Almond milk\n\nAll of these are safe for you since they're gluten-free, lactose-free, and vegan. Would you like me to check any specific product or help you narrow down the list further?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 169,
+                "prompt_tokens": 767,
+                "total_tokens": 936,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 512,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01489987,
+                "cost": 0.01489987,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355268425224193",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-c371-7151-bd7b-c96c62b76d37-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 767,
+              "output_tokens": 169,
+              "total_tokens": 936,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 512
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Can I eat bread?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "6db643f2-d7b7-4870-9c39-f23bfe1acc6b"
+          },
+          {
+            "content": "Let me check the status of bread for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 48,
+                "prompt_tokens": 944,
+                "total_tokens": 992,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 896,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00462643,
+                "cost": 0.00462643,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355278738493441",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ccfb-7d63-aef4-cebfe609c6fc-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "bread"
+                },
+                "id": "chatcmpl-tool-bac8fce602e77c26",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 944,
+              "output_tokens": 48,
+              "total_tokens": 992,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 896
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "bread: gluten-free: False lactose-free: False vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "a8e8499a-e795-4a65-b0c5-bf47bae77a5f",
+            "tool_call_id": "chatcmpl-tool-bac8fce602e77c26",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 1016,
+                "total_tokens": 1155,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01301444,
+                "cost": 0.01301444,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355286296498177",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1016,
+              "output_tokens": 139,
+              "total_tokens": 1155,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "What about flour?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+          },
+          {
+            "content": "Let me check the status of flour for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 49,
+                "prompt_tokens": 1162,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1024,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00585835,
+                "cost": 0.00585835,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355299274461185",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "flour"
+                },
+                "id": "chatcmpl-tool-8af21f20fbe0e992",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1162,
+              "output_tokens": 49,
+              "total_tokens": 1211,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 1024
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "flour: gluten-free: False lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+            "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 123,
+                "prompt_tokens": 1236,
+                "total_tokens": 1359,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02748591,
+                "cost": 0.02748591,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355304675807233",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1236,
+              "output_tokens": 123,
+              "total_tokens": 1359,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Is buckwheat ok for me?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:23"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 23,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:2fed6fea-5a00-96c6-cf75-8ac24b44c514",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": [
+        {
+          "graph": null,
+          "update": {
+            "messages": [
+              {
+                "content": "Let me check buckwheat for you.\n\n",
+                "additional_kwargs": {
+                  "refusal": null
+                },
+                "response_metadata": {
+                  "token_usage": {
+                    "completion_tokens": 50,
+                    "prompt_tokens": 1370,
+                    "total_tokens": 1420,
+                    "completion_tokens_details": {
+                      "accepted_prediction_tokens": null,
+                      "audio_tokens": 0,
+                      "reasoning_tokens": 0,
+                      "rejected_prediction_tokens": null,
+                      "image_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                      "audio_tokens": 0,
+                      "cache_write_tokens": 0,
+                      "cached_tokens": 1280,
+                      "video_tokens": 0
+                    },
+                    "server_tool_use": null,
+                    "cost_rub": 0.00534115,
+                    "cost": 0.00534115,
+                    "plugins": null
+                  },
+                  "model_provider": "openai",
+                  "model_name": "deepseek/deepseek-v4.1-flash",
+                  "system_fingerprint": null,
+                  "id": "gen_2226355313023127553",
+                  "finish_reason": "tool_calls",
+                  "logprobs": null
+                },
+                "type": "ai",
+                "name": null,
+                "id": "lc_run--01a17d97-ec58-71b1-9c05-6d54f6a1353a-0",
+                "tool_calls": [
+                  {
+                    "name": "food_check",
+                    "args": {
+                      "product_name": "buckwheat"
+                    },
+                    "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+                    "type": "tool_call"
+                  }
+                ],
+                "invalid_tool_calls": [],
+                "usage_metadata": {
+                  "input_tokens": 1370,
+                  "output_tokens": 50,
+                  "total_tokens": 1420,
+                  "input_token_details": {
+                    "audio": 0,
+                    "cache_read": 1280,
+                    "cache_creation": 0
+                  },
+                  "output_token_details": {
+                    "audio": 0,
+                    "reasoning": 0
+                  }
+                }
+              }
+            ]
+          },
+          "resume": null,
+          "goto": []
+        }
+      ],
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "aa9807550ed8747a",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 2.189,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.411Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "f218329a8e9da323",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "GENERATION",
+      "name": "ChatOpenAI",
+      "startTime": "2026-10-27T13:41:10.872000Z",
+      "endTime": "2026-10-27T13:41:13.057000Z",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelParameters": {},
+      "input": [
+        {
+          "role": "system",
+          "content": "\nYou are agent-chef who is an expert in food compound.\nYour main goal is to find the available products for user who can't eat.\n\nMAIN RULE:\nYou cant't find the products by yourself. You must use the tool to find it.\nYou cant't give any recommendations without tool calling.\nif you don't know the answer from tool, do not write any answer.\n"
+        },
+        {
+          "role": "user",
+          "content": "Hi! I avoid gluten and lactose, and I am vegan."
+        },
+        {
+          "role": "assistant",
+          "content": "I can help you find products that fit your dietary needs! Let me search for products that are gluten-free, lactose-free, and vegan.\n\n",
+          "tool_calls": [
+            {
+              "name": "food_search",
+              "args": {
+                "gluten_free": true,
+                "lactose_free": true,
+                "vegan": true
+              },
+              "id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+              "type": "tool_call"
+            }
+          ],
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "tool",
+          "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk",
+          "tool_call_id": "call-dd54906d-7b32-4311-b830-7b6c135547ef"
+        },
+        {
+          "role": "assistant",
+          "content": "Here are the products that fit all your dietary needs (gluten-free, lactose-free, and vegan):\n\n**Gluten-free grains & flours:**\n- Buckwheat\n- Quinoa\n- Millet\n- Amaranth\n- Teff\n- Sorghum\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\n**Noodles & wrappers:**\n- Corn tortilla\n- Rice noodles\n- Glass noodles\n- Rice paper\n\n**Condiments & other:**\n- Tamari\n- Psyllium husk\n- Sago\n- Almond milk\n\nAll of these are safe for you since they're gluten-free, lactose-free, and vegan. Would you like me to check any specific product or help you narrow down the list further?",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "Can I eat bread?"
+        },
+        {
+          "role": "assistant",
+          "content": "Let me check the status of bread for you.\n\n",
+          "tool_calls": [
+            {
+              "name": "food_check",
+              "args": {
+                "product_name": "bread"
+              },
+              "id": "chatcmpl-tool-bac8fce602e77c26",
+              "type": "tool_call"
+            }
+          ],
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "tool",
+          "content": "bread: gluten-free: False lactose-free: False vegan: True",
+          "tool_call_id": "chatcmpl-tool-bac8fce602e77c26"
+        },
+        {
+          "role": "assistant",
+          "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "What about flour?"
+        },
+        {
+          "role": "assistant",
+          "content": "Let me check the status of flour for you.\n\n",
+          "tool_calls": [
+            {
+              "name": "food_check",
+              "args": {
+                "product_name": "flour"
+              },
+              "id": "chatcmpl-tool-8af21f20fbe0e992",
+              "type": "tool_call"
+            }
+          ],
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "tool",
+          "content": "flour: gluten-free: False lactose-free: True vegan: True",
+          "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992"
+        },
+        {
+          "role": "assistant",
+          "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "Is buckwheat ok for me?"
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_search",
+              "description": "Search for products based on gluten and lactose free criteria.",
+              "parameters": {
+                "properties": {
+                  "gluten_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be gluten-free."
+                  },
+                  "lactose_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be lactose-free."
+                  },
+                  "vegan": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be vegan."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_check",
+              "description": "Check the gluten and lactose free and vegan status of a product.",
+              "parameters": {
+                "properties": {
+                  "product_name": {
+                    "description": "The name of the product to check.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "product_name"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_rnd_basket",
+              "description": "Return n random products.",
+              "parameters": {
+                "properties": {
+                  "n": {
+                    "description": "How many products to return.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "n"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_chat_model",
+        "thread_id": "load-summary",
+        "langgraph_step": 23,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:2fed6fea-5a00-96c6-cf75-8ac24b44c514",
+        "checkpoint_ns": "model:2fed6fea-5a00-96c6-cf75-8ac24b44c514",
+        "ls_provider": "openai",
+        "ls_model_name": "deepseek/deepseek-v4.1-flash@reasoning_effort=none",
+        "ls_model_type": "chat",
+        "lc_versions": {
+          "langchain-core": "1.6.4",
+          "langchain": "1.4.2",
+          "langchain-openai": "1.6.4"
+        },
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "output": {
+        "role": "assistant",
+        "content": "Let me check buckwheat for you.\n\n",
+        "tool_calls": [
+          {
+            "name": "food_check",
+            "args": {
+              "product_name": "buckwheat"
+            },
+            "id": "call-cdf2f200-a216-4289-a10d-d2aaf0747cba",
+            "type": "tool_call"
+          }
+        ],
+        "additional_kwargs": {
+          "refusal": null
+        }
+      },
+      "usage": {
+        "input": 1370,
+        "output": 50,
+        "total": 1420,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "13a97ec0c764da17",
+      "usageDetails": {
+        "input": 90,
+        "output": 50,
+        "total": 1420,
+        "input_audio": 0,
+        "input_cache_read": 1280,
+        "input_cache_creation": 0,
+        "output_audio": 0,
+        "output_reasoning": 0
+      },
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 2.185,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:17.396Z",
+      "updatedAt": "2026-10-27T13:41:17.412Z",
+      "unit": "TOKENS",
+      "promptTokens": 1370,
+      "completionTokens": 50,
+      "totalTokens": 1420,
+      "completionStartTime": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "7763677af547fb25",
+      "traceId": "bf5276442b4628bb85c8ff34228f79d1",
+      "type": "CHAIN",
+      "name": "SummarizationMiddleware.before_model",
+      "startTime": "2026-10-27T13:41:10.866000Z",
+      "endTime": "2026-10-27T13:41:10.868000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Hi! I avoid gluten and lactose, and I am vegan.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "4bfcabeb-8313-4ae9-a3a1-d604770bb7b7"
+          },
+          {
+            "content": "I can help you find products that fit your dietary needs! Let me search for products that are gluten-free, lactose-free, and vegan.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 103,
+                "prompt_tokens": 590,
+                "total_tokens": 693,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00818306,
+                "cost": 0.00818306,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355256718659585",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-b6cc-7863-bd4d-f6815143c008-0",
+            "tool_calls": [
+              {
+                "name": "food_search",
+                "args": {
+                  "gluten_free": true,
+                  "lactose_free": true,
+                  "vegan": true
+                },
+                "id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 590,
+              "output_tokens": 103,
+              "total_tokens": 693,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "b240d0ee-9880-4990-b7ab-1da0f1a74bff",
+            "tool_call_id": "call-dd54906d-7b32-4311-b830-7b6c135547ef",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here are the products that fit all your dietary needs (gluten-free, lactose-free, and vegan):\n\n**Gluten-free grains & flours:**\n- Buckwheat\n- Quinoa\n- Millet\n- Amaranth\n- Teff\n- Sorghum\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\n**Noodles & wrappers:**\n- Corn tortilla\n- Rice noodles\n- Glass noodles\n- Rice paper\n\n**Condiments & other:**\n- Tamari\n- Psyllium husk\n- Sago\n- Almond milk\n\nAll of these are safe for you since they're gluten-free, lactose-free, and vegan. Would you like me to check any specific product or help you narrow down the list further?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 169,
+                "prompt_tokens": 767,
+                "total_tokens": 936,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 512,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01489987,
+                "cost": 0.01489987,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355268425224193",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-c371-7151-bd7b-c96c62b76d37-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 767,
+              "output_tokens": 169,
+              "total_tokens": 936,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 512
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Can I eat bread?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "6db643f2-d7b7-4870-9c39-f23bfe1acc6b"
+          },
+          {
+            "content": "Let me check the status of bread for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 48,
+                "prompt_tokens": 944,
+                "total_tokens": 992,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 896,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00462643,
+                "cost": 0.00462643,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355278738493441",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-ccfb-7d63-aef4-cebfe609c6fc-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "bread"
+                },
+                "id": "chatcmpl-tool-bac8fce602e77c26",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 944,
+              "output_tokens": 48,
+              "total_tokens": 992,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 896
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "bread: gluten-free: False lactose-free: False vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "a8e8499a-e795-4a65-b0c5-bf47bae77a5f",
+            "tool_call_id": "chatcmpl-tool-bac8fce602e77c26",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Unfortunately, **regular bread is not safe for you**. Here's the breakdown:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ❌ **Lactose-free:** False (contains lactose)\n- ✅ **Vegan:** True\n\nSince you avoid gluten and lactose, standard bread isn't suitable for you. However, based on my earlier search, you might want to look into **gluten-free bread alternatives**, or use the safe products I found, such as:\n\n- Corn tortillas\n- Rice paper\n- Rice noodles\n- Glass noodles\n\nWould you like me to check a specific bread product (like a gluten-free or vegan bread brand) for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 1016,
+                "total_tokens": 1155,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.01301444,
+                "cost": 0.01301444,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355286296498177",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-d477-7d81-b408-b31fda652b5d-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1016,
+              "output_tokens": 139,
+              "total_tokens": 1155,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "What about flour?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "09493c84-bca3-4298-b2cf-44c1f0868a47"
+          },
+          {
+            "content": "Let me check the status of flour for you.\n\n",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 49,
+                "prompt_tokens": 1162,
+                "total_tokens": 1211,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 1024,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00585835,
+                "cost": 0.00585835,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355299274461185",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-dfc4-7b50-8e8f-bf5b5eebe45c-0",
+            "tool_calls": [
+              {
+                "name": "food_check",
+                "args": {
+                  "product_name": "flour"
+                },
+                "id": "chatcmpl-tool-8af21f20fbe0e992",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1162,
+              "output_tokens": 49,
+              "total_tokens": 1211,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 1024
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "flour: gluten-free: False lactose-free: True vegan: True",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_check",
+            "id": "efde4eb0-1eda-4049-a996-9e21b9f05911",
+            "tool_call_id": "chatcmpl-tool-8af21f20fbe0e992",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Here's the breakdown for **regular flour**:\n\n- ❌ **Gluten-free:** False (contains gluten)\n- ✅ **Lactose-free:** True\n- ✅ **Vegan:** True\n\nSince you avoid gluten, **regular flour is not safe for you**.\n\nHowever, from my earlier search, here are some **gluten-free flour options** that are also lactose-free and vegan:\n\n- Buckwheat\n- Tapioca\n- Cassava flour\n- Arrowroot\n- Chickpea flour\n- Polenta\n\nWould you like me to check any specific type of flour for you?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 123,
+                "prompt_tokens": 1236,
+                "total_tokens": 1359,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 0,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02748591,
+                "cost": 0.02748591,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2226355304675807233",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a17d97-e585-7b32-92d6-69afb36e10d0-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1236,
+              "output_tokens": 123,
+              "total_tokens": 1359,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Is buckwheat ok for me?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "34ed03eb-0db9-4190-8b6c-9954717d8390"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:22"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "load-summary",
+        "langgraph_step": 22,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:13375dd3-cc8f-51a0-33f0-022e8e1a0ec4",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.44.0",
+          "service.instance.id": "640e5693-4274-435a-a716-4ffad8f7a5ec",
+          "service.name": "unknown_service"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-REDACTED"
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "aa9807550ed8747a",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.002,
+      "projectId": "assistant",
+      "createdAt": "2026-10-27T13:41:12.331Z",
+      "updatedAt": "2026-10-27T13:41:12.366Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "output": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    }
+  ]
+}
