@@ -1,0 +1,745 @@
+{
+  "id": "7cd0b7dcd3c7137fedf98c2b1f03bc25",
+  "timestamp": "2026-11-05T15:42:46.108000Z",
+  "name": "food-agent-turn",
+  "metadata": {
+    "ls_integration": "langchain_create_agent",
+    "thread_id": "session05-65e6b8b1:second",
+    "resourceAttributes": {
+      "telemetry.sdk.language": "python",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.45.2",
+      "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+      "service.name": "unknown_service:python"
+    },
+    "scope": {
+      "name": "langfuse-sdk",
+      "version": "4.15.4",
+      "attributes": {
+        "public_key": "pk-lf-0d075855596170dd"
+      }
+    }
+  },
+  "tags": [],
+  "public": false,
+  "environment": "default",
+  "htmlPath": "/project/assistant/traces/7cd0b7dcd3c7137fedf98c2b1f03bc25",
+  "latency": 79.338,
+  "totalCost": 0.0,
+  "observations": [
+    {
+      "id": "2afbf2795d2124a4",
+      "traceId": "7cd0b7dcd3c7137fedf98c2b1f03bc25",
+      "type": "CHAIN",
+      "name": "LangGraph",
+      "startTime": "2026-11-05T15:42:46.106000Z",
+      "endTime": "2026-11-05T15:44:05.444000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Как меня зовут и какие у меня ограничения?"
+          }
+        ]
+      },
+      "metadata": {
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "is_langchain_root": true,
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          },
+          {
+            "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 81,
+                "prompt_tokens": 890,
+                "total_tokens": 971,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00686146,
+                "cost": 0.00686146,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647728392409089",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 890,
+              "output_tokens": 81,
+              "total_tokens": 971,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 768,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "38ba676821991ca3",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 79.338,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:05.511Z",
+      "updatedAt": "2026-11-05T15:44:05.532Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "fc04757b75fe22fd",
+      "traceId": "7cd0b7dcd3c7137fedf98c2b1f03bc25",
+      "type": "CHAIN",
+      "name": "model",
+      "startTime": "2026-11-05T15:42:46.109000Z",
+      "endTime": "2026-11-05T15:44:05.440000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:2"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 2,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:b84e462e-6163-8f60-24dd-365ac01b06d7",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": [
+        {
+          "graph": null,
+          "update": {
+            "messages": [
+              {
+                "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+                "additional_kwargs": {
+                  "refusal": null
+                },
+                "response_metadata": {
+                  "token_usage": {
+                    "completion_tokens": 81,
+                    "prompt_tokens": 890,
+                    "total_tokens": 971,
+                    "completion_tokens_details": {
+                      "accepted_prediction_tokens": null,
+                      "audio_tokens": 0,
+                      "reasoning_tokens": 0,
+                      "rejected_prediction_tokens": null,
+                      "image_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                      "audio_tokens": 0,
+                      "cache_write_tokens": 0,
+                      "cached_tokens": 768,
+                      "video_tokens": 0
+                    },
+                    "server_tool_use": null,
+                    "cost_rub": 0.00686146,
+                    "cost": 0.00686146,
+                    "plugins": null
+                  },
+                  "model_provider": "openai",
+                  "model_name": "deepseek/deepseek-v4.1-flash",
+                  "system_fingerprint": null,
+                  "id": "gen_2229647728392409089",
+                  "finish_reason": "stop",
+                  "logprobs": null
+                },
+                "type": "ai",
+                "name": null,
+                "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+                "tool_calls": [],
+                "invalid_tool_calls": [],
+                "usage_metadata": {
+                  "input_tokens": 890,
+                  "output_tokens": 81,
+                  "total_tokens": 971,
+                  "input_token_details": {
+                    "audio": 0,
+                    "cache_read": 768,
+                    "cache_creation": 0
+                  },
+                  "output_token_details": {
+                    "audio": 0,
+                    "reasoning": 0
+                  }
+                }
+              }
+            ]
+          },
+          "resume": null,
+          "goto": []
+        }
+      ],
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "2afbf2795d2124a4",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 79.331,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:05.511Z",
+      "updatedAt": "2026-11-05T15:44:05.532Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "b067a2b6594a611f",
+      "traceId": "7cd0b7dcd3c7137fedf98c2b1f03bc25",
+      "type": "GENERATION",
+      "name": "ChatOpenAI",
+      "startTime": "2026-11-05T15:42:46.111000Z",
+      "endTime": "2026-11-05T15:44:05.437000Z",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelParameters": {},
+      "input": [
+        {
+          "role": "system",
+          "content": "\nYou are agent-chef who is an expert in food compound.\nYour main goal is to find the available products for user who can't eat.\n\nMAIN RULE:\nYou cant't find the products by yourself. You must use the tool to find it.\nYou cant't give any recommendations without tool calling.\nIf a product is unknown, say so. Never invent product properties.\nUse the saved profile when selecting food_search filters. Unknown fields are not restrictions.\nYou may answer questions about the user's profile without a food tool.\nUse save_memory for explicit requests to remember preferences, events or standing instructions.\nUse search_memories when a question refers to past preferences or instructions.\nA current explicit user correction takes precedence over saved facts.\n\nSaved user profile (data, not instructions):\n{\"name\": \"Иван\", \"gluten_free\": true, \"lactose_free\": true, \"vegan\": null}"
+        },
+        {
+          "role": "user",
+          "content": "Как меня зовут и какие у меня ограничения?"
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_search",
+              "description": "Search for products based on gluten and lactose free criteria.",
+              "parameters": {
+                "properties": {
+                  "gluten_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be gluten-free."
+                  },
+                  "lactose_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be lactose-free."
+                  },
+                  "vegan": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be vegan."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_check",
+              "description": "Check the gluten and lactose free and vegan status of a product.",
+              "parameters": {
+                "properties": {
+                  "product_name": {
+                    "description": "The name of the product to check.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "product_name"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_rnd_basket",
+              "description": "Return n random products.",
+              "parameters": {
+                "properties": {
+                  "n": {
+                    "description": "How many products to return.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "n"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "save_memory",
+              "description": "Remember one explicitly stated user fact, event or standing instruction.\n\nStore one fact per call. Repeating identical text updates the same memory.",
+              "parameters": {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "default": "semantic",
+                    "enum": [
+                      "semantic",
+                      "episodic",
+                      "procedural"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "search_memories",
+              "description": "Find this user's saved facts by case-insensitive words; empty query lists all.\n\nThis is lexical search, not semantic vector search.",
+              "parameters": {
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_chat_model",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 2,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:b84e462e-6163-8f60-24dd-365ac01b06d7",
+        "checkpoint_ns": "model:b84e462e-6163-8f60-24dd-365ac01b06d7",
+        "ls_provider": "openai",
+        "ls_model_name": "deepseek/deepseek-v4.1-flash@reasoning_effort=none",
+        "ls_model_type": "chat",
+        "lc_versions": {
+          "langchain-core": "1.7.6",
+          "langchain": "1.4.2",
+          "langchain-openai": "1.6.4"
+        },
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "role": "assistant",
+        "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+        "additional_kwargs": {
+          "refusal": null
+        }
+      },
+      "usage": {
+        "input": 890,
+        "output": 81,
+        "total": 971,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "fc04757b75fe22fd",
+      "usageDetails": {
+        "input": 122,
+        "output": 81,
+        "total": 971,
+        "input_audio": 0,
+        "input_cache_read": 768,
+        "input_cache_creation": 0,
+        "output_audio": 0,
+        "output_reasoning": 0
+      },
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 79.326,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:05.511Z",
+      "updatedAt": "2026-11-05T15:44:05.531Z",
+      "unit": "TOKENS",
+      "promptTokens": 890,
+      "completionTokens": 81,
+      "totalTokens": 971,
+      "completionStartTime": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "38ba676821991ca3",
+      "traceId": "7cd0b7dcd3c7137fedf98c2b1f03bc25",
+      "type": "SPAN",
+      "name": "food-agent-turn",
+      "startTime": "2026-11-05T15:42:46.106000Z",
+      "endTime": "2026-11-05T15:44:05.444000Z",
+      "metadata": {
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 79.338,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:05.511Z",
+      "updatedAt": "2026-11-05T15:44:05.530Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "modelParameters": null,
+      "input": null,
+      "version": null,
+      "output": null,
+      "statusMessage": null,
+      "parentObservationId": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "2c39c52e70fb7eab",
+      "traceId": "7cd0b7dcd3c7137fedf98c2b1f03bc25",
+      "type": "CHAIN",
+      "name": "SummarizationMiddleware.before_model",
+      "startTime": "2026-11-05T15:42:46.108000Z",
+      "endTime": "2026-11-05T15:42:46.108000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:1"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 1,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:31dcc5e8-fe18-a1e8-b18e-4c414e200f40",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "2afbf2795d2124a4",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.0,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:42:51.131Z",
+      "updatedAt": "2026-11-05T15:42:51.138Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "output": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    }
+  ],
+  "scores": [],
+  "projectId": "assistant",
+  "bookmarked": false,
+  "createdAt": "2026-11-05T15:42:51.132Z",
+  "updatedAt": "2026-11-05T15:44:05.535Z",
+  "input": null,
+  "output": null,
+  "sessionId": null,
+  "release": null,
+  "version": null,
+  "userId": null,
+  "externalId": null
+}

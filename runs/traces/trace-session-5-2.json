@@ -1,0 +1,2334 @@
+{
+  "id": "fa903128e185331aec4510c2a18be5af",
+  "timestamp": "2026-11-05T15:44:06.938000Z",
+  "name": "food-agent-turn",
+  "metadata": {
+    "ls_integration": "langchain_create_agent",
+    "thread_id": "session05-65e6b8b1:second",
+    "resourceAttributes": {
+      "telemetry.sdk.language": "python",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.45.2",
+      "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+      "service.name": "unknown_service:python"
+    },
+    "scope": {
+      "name": "langfuse-sdk",
+      "version": "4.15.4",
+      "attributes": {
+        "public_key": "pk-lf-0d075855596170dd"
+      }
+    }
+  },
+  "tags": [],
+  "public": false,
+  "environment": "default",
+  "htmlPath": "/project/assistant/traces/fa903128e185331aec4510c2a18be5af",
+  "latency": 4.85,
+  "totalCost": 0.0,
+  "observations": [
+    {
+      "id": "abb4b799559e4575",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "SPAN",
+      "name": "food-agent-turn",
+      "startTime": "2026-11-05T15:44:06.938000Z",
+      "endTime": "2026-11-05T15:44:11.788000Z",
+      "metadata": {
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 4.85,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.889Z",
+      "updatedAt": "2026-11-05T15:44:11.913Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "modelParameters": null,
+      "input": null,
+      "version": null,
+      "output": null,
+      "statusMessage": null,
+      "parentObservationId": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "c360c5388cc6c1ed",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "model",
+      "startTime": "2026-11-05T15:44:08.086000Z",
+      "endTime": "2026-11-05T15:44:11.777000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          },
+          {
+            "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 81,
+                "prompt_tokens": 890,
+                "total_tokens": 971,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00686146,
+                "cost": 0.00686146,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647728392409089",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 890,
+              "output_tokens": 81,
+              "total_tokens": 971,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "7482f5a7-6e51-428d-a18f-feb66676b8c2"
+          },
+          {
+            "content": "I'll search your saved memories and then find suitable products.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 98,
+                "prompt_tokens": 994,
+                "total_tokens": 1092,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02179644,
+                "cost": 0.02179644,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647740117061633",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac61-b521-706d-851b-4463705e75e6-0",
+            "tool_calls": [
+              {
+                "name": "search_memories",
+                "args": {
+                  "query": ""
+                },
+                "id": "call_01a1ac61b7d07540a7238668",
+                "type": "tool_call"
+              },
+              {
+                "name": "food_search",
+                "args": {
+                  "gluten_free": true,
+                  "lactose_free": true
+                },
+                "id": "call_01a1ac61b8387602af733d1d",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 994,
+              "output_tokens": 98,
+              "total_tokens": 1092,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 768,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "[{\"text\": \"Иван предпочитает гречку.\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет лактозу (lactose-free).\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет глютен (gluten-free).\", \"kind\": \"semantic\"}]",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "search_memories",
+            "id": "7ba94cda-2009-490e-a10d-f1f053c8f9f9",
+            "tool_call_id": "call_01a1ac61b7d07540a7238668",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, parmesan, lactose-free milk, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "e2371286-bf31-47cc-9251-bf250c0b378d",
+            "tool_call_id": "call_01a1ac61b8387602af733d1d",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:9"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 9,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:9e6dd638-02f2-3e14-8e94-4b6e5b0f5b88",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": [
+        {
+          "graph": null,
+          "update": {
+            "messages": [
+              {
+                "content": "Вот что сохранилось в вашей памяти:\n\n- Иван предпочитает гречку\n- Иван не употребляет лактозу (lactose-free)\n- Иван не употребляет глютен (gluten-free)\n\nА вот подходящие продукты (без глютена и без лактозы) из поиска:\n\n**Крупы и злаки/мука:**\n- Гречка (buckwheat) ⭐ — ваше предпочтение\n- Киноа (quinoa)\n- Пшено (millet)\n- Амарант (amaranth)\n- Тефф (teff)\n- Сорго (sorghum)\n- Тапиока (tapioca)\n- Мука из маниоки (cassava flour)\n- Аррорут (arrowroot)\n- Мука из нута (chickpea flour)\n- Полента (polenta)\n- Псиллиум (psyllium husk)\n- Саго (sago)\n\n**Готовые изделия:**\n- Кукурузная тортилья (corn tortilla)\n- Рисовая лапша (rice noodles)\n- Стеклянная лапша (glass noodles)\n- Рисовая бумага (rice paper)\n- Тамари (tamari)\n\n**Молочные/растительные альтернативы:**\n- Безлактозное молоко (lactose-free milk)\n- Миндальное молоко (almond milk)\n- Пармезан (parmesan) ⚠️ — обратите внимание: обычно содержит лактозу, несмотря на то что попал в выдачу; при необходимости могу проверить его статус через food_check\n\nХотите, чтобы я проверил статус какого-то конкретного продукта (например, пармезана)?",
+                "additional_kwargs": {
+                  "refusal": null
+                },
+                "response_metadata": {
+                  "token_usage": {
+                    "completion_tokens": 406,
+                    "prompt_tokens": 1277,
+                    "total_tokens": 1683,
+                    "completion_tokens_details": {
+                      "accepted_prediction_tokens": null,
+                      "audio_tokens": 0,
+                      "reasoning_tokens": 0,
+                      "rejected_prediction_tokens": null,
+                      "image_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                      "audio_tokens": 0,
+                      "cache_write_tokens": 0,
+                      "cached_tokens": 768,
+                      "video_tokens": 0
+                    },
+                    "server_tool_use": null,
+                    "cost_rub": 0.0275001,
+                    "cost": 0.0275001,
+                    "plugins": null
+                  },
+                  "model_provider": "openai",
+                  "model_name": "deepseek/deepseek-v4.1-flash",
+                  "system_fingerprint": null,
+                  "id": "gen_2229647744942477313",
+                  "finish_reason": "stop",
+                  "logprobs": null
+                },
+                "type": "ai",
+                "name": null,
+                "id": "lc_run--01a1ac61-b997-73de-8497-b5296aeecebb-0",
+                "tool_calls": [],
+                "invalid_tool_calls": [],
+                "usage_metadata": {
+                  "input_tokens": 1277,
+                  "output_tokens": 406,
+                  "total_tokens": 1683,
+                  "input_token_details": {
+                    "audio": 0,
+                    "cache_read": 768,
+                    "cache_creation": 0
+                  },
+                  "output_token_details": {
+                    "audio": 0,
+                    "reasoning": 0
+                  }
+                }
+              }
+            ]
+          },
+          "resume": null,
+          "goto": []
+        }
+      ],
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "1b1733049af96df0",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 3.691,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.889Z",
+      "updatedAt": "2026-11-05T15:44:11.912Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "1b1733049af96df0",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "LangGraph",
+      "startTime": "2026-11-05T15:44:06.939000Z",
+      "endTime": "2026-11-05T15:44:11.788000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений."
+          }
+        ]
+      },
+      "metadata": {
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "is_langchain_root": true,
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          },
+          {
+            "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 81,
+                "prompt_tokens": 890,
+                "total_tokens": 971,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00686146,
+                "cost": 0.00686146,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647728392409089",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 890,
+              "output_tokens": 81,
+              "total_tokens": 971,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "7482f5a7-6e51-428d-a18f-feb66676b8c2"
+          },
+          {
+            "content": "I'll search your saved memories and then find suitable products.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 98,
+                "prompt_tokens": 994,
+                "total_tokens": 1092,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02179644,
+                "cost": 0.02179644,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647740117061633",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac61-b521-706d-851b-4463705e75e6-0",
+            "tool_calls": [
+              {
+                "name": "search_memories",
+                "args": {
+                  "query": ""
+                },
+                "id": "call_01a1ac61b7d07540a7238668",
+                "type": "tool_call"
+              },
+              {
+                "name": "food_search",
+                "args": {
+                  "gluten_free": true,
+                  "lactose_free": true
+                },
+                "id": "call_01a1ac61b8387602af733d1d",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 994,
+              "output_tokens": 98,
+              "total_tokens": 1092,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 768,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "[{\"text\": \"Иван предпочитает гречку.\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет лактозу (lactose-free).\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет глютен (gluten-free).\", \"kind\": \"semantic\"}]",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "search_memories",
+            "id": "7ba94cda-2009-490e-a10d-f1f053c8f9f9",
+            "tool_call_id": "call_01a1ac61b7d07540a7238668",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, parmesan, lactose-free milk, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "e2371286-bf31-47cc-9251-bf250c0b378d",
+            "tool_call_id": "call_01a1ac61b8387602af733d1d",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "Вот что сохранилось в вашей памяти:\n\n- Иван предпочитает гречку\n- Иван не употребляет лактозу (lactose-free)\n- Иван не употребляет глютен (gluten-free)\n\nА вот подходящие продукты (без глютена и без лактозы) из поиска:\n\n**Крупы и злаки/мука:**\n- Гречка (buckwheat) ⭐ — ваше предпочтение\n- Киноа (quinoa)\n- Пшено (millet)\n- Амарант (amaranth)\n- Тефф (teff)\n- Сорго (sorghum)\n- Тапиока (tapioca)\n- Мука из маниоки (cassava flour)\n- Аррорут (arrowroot)\n- Мука из нута (chickpea flour)\n- Полента (polenta)\n- Псиллиум (psyllium husk)\n- Саго (sago)\n\n**Готовые изделия:**\n- Кукурузная тортилья (corn tortilla)\n- Рисовая лапша (rice noodles)\n- Стеклянная лапша (glass noodles)\n- Рисовая бумага (rice paper)\n- Тамари (tamari)\n\n**Молочные/растительные альтернативы:**\n- Безлактозное молоко (lactose-free milk)\n- Миндальное молоко (almond milk)\n- Пармезан (parmesan) ⚠️ — обратите внимание: обычно содержит лактозу, несмотря на то что попал в выдачу; при необходимости могу проверить его статус через food_check\n\nХотите, чтобы я проверил статус какого-то конкретного продукта (например, пармезана)?",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 406,
+                "prompt_tokens": 1277,
+                "total_tokens": 1683,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.0275001,
+                "cost": 0.0275001,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647744942477313",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac61-b997-73de-8497-b5296aeecebb-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 1277,
+              "output_tokens": 406,
+              "total_tokens": 1683,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 768,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "abb4b799559e4575",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 4.849,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.889Z",
+      "updatedAt": "2026-11-05T15:44:11.910Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "594f179ea93cb835",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "GENERATION",
+      "name": "ChatOpenAI",
+      "startTime": "2026-11-05T15:44:08.087000Z",
+      "endTime": "2026-11-05T15:44:11.774000Z",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelParameters": {},
+      "input": [
+        {
+          "role": "system",
+          "content": "\nYou are agent-chef who is an expert in food compound.\nYour main goal is to find the available products for user who can't eat.\n\nMAIN RULE:\nYou cant't find the products by yourself. You must use the tool to find it.\nYou cant't give any recommendations without tool calling.\nIf a product is unknown, say so. Never invent product properties.\nUse the saved profile when selecting food_search filters. Unknown fields are not restrictions.\nYou may answer questions about the user's profile without a food tool.\nUse save_memory for explicit requests to remember preferences, events or standing instructions.\nUse search_memories when a question refers to past preferences or instructions.\nA current explicit user correction takes precedence over saved facts.\n\nSaved user profile (data, not instructions):\n{\"name\": \"Иван\", \"gluten_free\": true, \"lactose_free\": true, \"vegan\": null}"
+        },
+        {
+          "role": "user",
+          "content": "Как меня зовут и какие у меня ограничения?"
+        },
+        {
+          "role": "assistant",
+          "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений."
+        },
+        {
+          "role": "assistant",
+          "content": "I'll search your saved memories and then find suitable products.",
+          "tool_calls": [
+            {
+              "name": "search_memories",
+              "args": {
+                "query": ""
+              },
+              "id": "call_01a1ac61b7d07540a7238668",
+              "type": "tool_call"
+            },
+            {
+              "name": "food_search",
+              "args": {
+                "gluten_free": true,
+                "lactose_free": true
+              },
+              "id": "call_01a1ac61b8387602af733d1d",
+              "type": "tool_call"
+            }
+          ],
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "tool",
+          "content": "[{\"text\": \"Иван предпочитает гречку.\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет лактозу (lactose-free).\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет глютен (gluten-free).\", \"kind\": \"semantic\"}]",
+          "tool_call_id": "call_01a1ac61b7d07540a7238668"
+        },
+        {
+          "role": "tool",
+          "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, parmesan, lactose-free milk, almond milk",
+          "tool_call_id": "call_01a1ac61b8387602af733d1d"
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_search",
+              "description": "Search for products based on gluten and lactose free criteria.",
+              "parameters": {
+                "properties": {
+                  "gluten_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be gluten-free."
+                  },
+                  "lactose_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be lactose-free."
+                  },
+                  "vegan": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be vegan."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_check",
+              "description": "Check the gluten and lactose free and vegan status of a product.",
+              "parameters": {
+                "properties": {
+                  "product_name": {
+                    "description": "The name of the product to check.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "product_name"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_rnd_basket",
+              "description": "Return n random products.",
+              "parameters": {
+                "properties": {
+                  "n": {
+                    "description": "How many products to return.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "n"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "save_memory",
+              "description": "Remember one explicitly stated user fact, event or standing instruction.\n\nStore one fact per call. Repeating identical text updates the same memory.",
+              "parameters": {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "default": "semantic",
+                    "enum": [
+                      "semantic",
+                      "episodic",
+                      "procedural"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "search_memories",
+              "description": "Find this user's saved facts by case-insensitive words; empty query lists all.\n\nThis is lexical search, not semantic vector search.",
+              "parameters": {
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_chat_model",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 9,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:9e6dd638-02f2-3e14-8e94-4b6e5b0f5b88",
+        "checkpoint_ns": "model:9e6dd638-02f2-3e14-8e94-4b6e5b0f5b88",
+        "ls_provider": "openai",
+        "ls_model_name": "deepseek/deepseek-v4.1-flash@reasoning_effort=none",
+        "ls_model_type": "chat",
+        "lc_versions": {
+          "langchain-core": "1.7.6",
+          "langchain": "1.4.2",
+          "langchain-openai": "1.6.4"
+        },
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "role": "assistant",
+        "content": "Вот что сохранилось в вашей памяти:\n\n- Иван предпочитает гречку\n- Иван не употребляет лактозу (lactose-free)\n- Иван не употребляет глютен (gluten-free)\n\nА вот подходящие продукты (без глютена и без лактозы) из поиска:\n\n**Крупы и злаки/мука:**\n- Гречка (buckwheat) ⭐ — ваше предпочтение\n- Киноа (quinoa)\n- Пшено (millet)\n- Амарант (amaranth)\n- Тефф (teff)\n- Сорго (sorghum)\n- Тапиока (tapioca)\n- Мука из маниоки (cassava flour)\n- Аррорут (arrowroot)\n- Мука из нута (chickpea flour)\n- Полента (polenta)\n- Псиллиум (psyllium husk)\n- Саго (sago)\n\n**Готовые изделия:**\n- Кукурузная тортилья (corn tortilla)\n- Рисовая лапша (rice noodles)\n- Стеклянная лапша (glass noodles)\n- Рисовая бумага (rice paper)\n- Тамари (tamari)\n\n**Молочные/растительные альтернативы:**\n- Безлактозное молоко (lactose-free milk)\n- Миндальное молоко (almond milk)\n- Пармезан (parmesan) ⚠️ — обратите внимание: обычно содержит лактозу, несмотря на то что попал в выдачу; при необходимости могу проверить его статус через food_check\n\nХотите, чтобы я проверил статус какого-то конкретного продукта (например, пармезана)?",
+        "additional_kwargs": {
+          "refusal": null
+        }
+      },
+      "usage": {
+        "input": 1277,
+        "output": 406,
+        "total": 1683,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "c360c5388cc6c1ed",
+      "usageDetails": {
+        "input": 509,
+        "output": 406,
+        "total": 1683,
+        "input_audio": 0,
+        "input_cache_read": 768,
+        "input_cache_creation": 0,
+        "output_audio": 0,
+        "output_reasoning": 0
+      },
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 3.687,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.889Z",
+      "updatedAt": "2026-11-05T15:44:11.908Z",
+      "unit": "TOKENS",
+      "promptTokens": 1277,
+      "completionTokens": 406,
+      "totalTokens": 1683,
+      "completionStartTime": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "bb7463c09702fbb9",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "tools",
+      "startTime": "2026-11-05T15:44:08.071000Z",
+      "endTime": "2026-11-05T15:44:08.079000Z",
+      "modelParameters": {},
+      "input": [
+        {
+          "name": "food_search",
+          "args": {
+            "gluten_free": true,
+            "lactose_free": true
+          },
+          "id": "call_01a1ac61b8387602af733d1d",
+          "type": "tool_call"
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "graph:step:7"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 7,
+        "langgraph_node": "tools",
+        "langgraph_triggers": [
+          "__pregel_push"
+        ],
+        "langgraph_path": [
+          "__pregel_push",
+          1,
+          false
+        ],
+        "langgraph_checkpoint_ns": "tools:2232b2f3-1d0e-324f-924b-f4f0ecd7059e",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, parmesan, lactose-free milk, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "e2371286-bf31-47cc-9251-bf250c0b378d",
+            "tool_call_id": "call_01a1ac61b8387602af733d1d",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "1b1733049af96df0",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.008,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.376Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "df9e4e3890fef341",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "SummarizationMiddleware.before_model",
+      "startTime": "2026-11-05T15:44:08.085000Z",
+      "endTime": "2026-11-05T15:44:08.085000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          },
+          {
+            "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 81,
+                "prompt_tokens": 890,
+                "total_tokens": 971,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00686146,
+                "cost": 0.00686146,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647728392409089",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 890,
+              "output_tokens": 81,
+              "total_tokens": 971,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "7482f5a7-6e51-428d-a18f-feb66676b8c2"
+          },
+          {
+            "content": "I'll search your saved memories and then find suitable products.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 98,
+                "prompt_tokens": 994,
+                "total_tokens": 1092,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.02179644,
+                "cost": 0.02179644,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647740117061633",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac61-b521-706d-851b-4463705e75e6-0",
+            "tool_calls": [
+              {
+                "name": "search_memories",
+                "args": {
+                  "query": ""
+                },
+                "id": "call_01a1ac61b7d07540a7238668",
+                "type": "tool_call"
+              },
+              {
+                "name": "food_search",
+                "args": {
+                  "gluten_free": true,
+                  "lactose_free": true
+                },
+                "id": "call_01a1ac61b8387602af733d1d",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 994,
+              "output_tokens": 98,
+              "total_tokens": 1092,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 768,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "[{\"text\": \"Иван предпочитает гречку.\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет лактозу (lactose-free).\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет глютен (gluten-free).\", \"kind\": \"semantic\"}]",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "search_memories",
+            "id": "7ba94cda-2009-490e-a10d-f1f053c8f9f9",
+            "tool_call_id": "call_01a1ac61b7d07540a7238668",
+            "artifact": null,
+            "status": "success"
+          },
+          {
+            "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, parmesan, lactose-free milk, almond milk",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "food_search",
+            "id": "e2371286-bf31-47cc-9251-bf250c0b378d",
+            "tool_call_id": "call_01a1ac61b8387602af733d1d",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:8"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 8,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:50db6bd7-1af3-da88-fac6-44cf02f52ef0",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "1b1733049af96df0",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.0,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.375Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "output": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "5b6876431c1d4ac5",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "TOOL",
+      "name": "search_memories",
+      "startTime": "2026-11-05T15:44:08.078000Z",
+      "endTime": "2026-11-05T15:44:08.084000Z",
+      "modelParameters": {},
+      "input": {
+        "query": ""
+      },
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 7,
+        "langgraph_node": "tools",
+        "langgraph_triggers": [
+          "__pregel_push"
+        ],
+        "langgraph_path": [
+          "__pregel_push",
+          0,
+          false
+        ],
+        "langgraph_checkpoint_ns": "tools:a73b3de5-7573-3226-92f2-255880842abd",
+        "checkpoint_ns": "tools:a73b3de5-7573-3226-92f2-255880842abd",
+        "color": "green",
+        "tool_call_id": "call_01a1ac61b7d07540a7238668",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "content": "[{\"text\": \"Иван предпочитает гречку.\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет лактозу (lactose-free).\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет глютен (gluten-free).\", \"kind\": \"semantic\"}]",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "search_memories",
+        "id": null,
+        "tool_call_id": "call_01a1ac61b7d07540a7238668",
+        "artifact": null,
+        "status": "success"
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "b09b2dc4fff9c817",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.006,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.375Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "b09b2dc4fff9c817",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "tools",
+      "startTime": "2026-11-05T15:44:08.076000Z",
+      "endTime": "2026-11-05T15:44:08.085000Z",
+      "modelParameters": {},
+      "input": [
+        {
+          "name": "search_memories",
+          "args": {
+            "query": ""
+          },
+          "id": "call_01a1ac61b7d07540a7238668",
+          "type": "tool_call"
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "graph:step:7"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 7,
+        "langgraph_node": "tools",
+        "langgraph_triggers": [
+          "__pregel_push"
+        ],
+        "langgraph_path": [
+          "__pregel_push",
+          0,
+          false
+        ],
+        "langgraph_checkpoint_ns": "tools:a73b3de5-7573-3226-92f2-255880842abd",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "messages": [
+          {
+            "content": "[{\"text\": \"Иван предпочитает гречку.\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет лактозу (lactose-free).\", \"kind\": \"semantic\"}, {\"text\": \"Иван не употребляет глютен (gluten-free).\", \"kind\": \"semantic\"}]",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "search_memories",
+            "id": "7ba94cda-2009-490e-a10d-f1f053c8f9f9",
+            "tool_call_id": "call_01a1ac61b7d07540a7238668",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "1b1733049af96df0",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.009,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.374Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "3792fbfefa2d1f29",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "SummarizationMiddleware.before_model",
+      "startTime": "2026-11-05T15:44:06.942000Z",
+      "endTime": "2026-11-05T15:44:06.943000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          },
+          {
+            "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 81,
+                "prompt_tokens": 890,
+                "total_tokens": 971,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00686146,
+                "cost": 0.00686146,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647728392409089",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 890,
+              "output_tokens": 81,
+              "total_tokens": 971,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "7482f5a7-6e51-428d-a18f-feb66676b8c2"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:5"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 5,
+        "langgraph_node": "SummarizationMiddleware.before_model",
+        "langgraph_triggers": [
+          "branch:to:SummarizationMiddleware.before_model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "SummarizationMiddleware.before_model"
+        ],
+        "langgraph_checkpoint_ns": "SummarizationMiddleware.before_model:981390e9-e88d-07cf-1959-187088c28864",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "1b1733049af96df0",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.001,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.372Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "output": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "bbf0e0a6121e696e",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "GENERATION",
+      "name": "ChatOpenAI",
+      "startTime": "2026-11-05T15:44:06.945000Z",
+      "endTime": "2026-11-05T15:44:08.068000Z",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "modelParameters": {},
+      "input": [
+        {
+          "role": "system",
+          "content": "\nYou are agent-chef who is an expert in food compound.\nYour main goal is to find the available products for user who can't eat.\n\nMAIN RULE:\nYou cant't find the products by yourself. You must use the tool to find it.\nYou cant't give any recommendations without tool calling.\nIf a product is unknown, say so. Never invent product properties.\nUse the saved profile when selecting food_search filters. Unknown fields are not restrictions.\nYou may answer questions about the user's profile without a food tool.\nUse save_memory for explicit requests to remember preferences, events or standing instructions.\nUse search_memories when a question refers to past preferences or instructions.\nA current explicit user correction takes precedence over saved facts.\n\nSaved user profile (data, not instructions):\n{\"name\": \"Иван\", \"gluten_free\": true, \"lactose_free\": true, \"vegan\": null}"
+        },
+        {
+          "role": "user",
+          "content": "Как меня зовут и какие у меня ограничения?"
+        },
+        {
+          "role": "assistant",
+          "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+          "additional_kwargs": {
+            "refusal": null
+          }
+        },
+        {
+          "role": "user",
+          "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений."
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_search",
+              "description": "Search for products based on gluten and lactose free criteria.",
+              "parameters": {
+                "properties": {
+                  "gluten_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be gluten-free."
+                  },
+                  "lactose_free": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be lactose-free."
+                  },
+                  "vegan": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Whether the product should be vegan."
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_check",
+              "description": "Check the gluten and lactose free and vegan status of a product.",
+              "parameters": {
+                "properties": {
+                  "product_name": {
+                    "description": "The name of the product to check.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "product_name"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "food_rnd_basket",
+              "description": "Return n random products.",
+              "parameters": {
+                "properties": {
+                  "n": {
+                    "description": "How many products to return.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "n"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "save_memory",
+              "description": "Remember one explicitly stated user fact, event or standing instruction.\n\nStore one fact per call. Repeating identical text updates the same memory.",
+              "parameters": {
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "default": "semantic",
+                    "enum": [
+                      "semantic",
+                      "episodic",
+                      "procedural"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": {
+            "type": "function",
+            "function": {
+              "name": "search_memories",
+              "description": "Find this user's saved facts by case-insensitive words; empty query lists all.\n\nThis is lexical search, not semantic vector search.",
+              "parameters": {
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_chat_model",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 6,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:da797a22-0ccf-5b67-994f-99eafc599e7b",
+        "checkpoint_ns": "model:da797a22-0ccf-5b67-994f-99eafc599e7b",
+        "ls_provider": "openai",
+        "ls_model_name": "deepseek/deepseek-v4.1-flash@reasoning_effort=none",
+        "ls_model_type": "chat",
+        "lc_versions": {
+          "langchain-core": "1.7.6",
+          "langchain": "1.4.2",
+          "langchain-openai": "1.6.4"
+        },
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "role": "assistant",
+        "content": "I'll search your saved memories and then find suitable products.",
+        "tool_calls": [
+          {
+            "name": "search_memories",
+            "args": {
+              "query": ""
+            },
+            "id": "call_01a1ac61b7d07540a7238668",
+            "type": "tool_call"
+          },
+          {
+            "name": "food_search",
+            "args": {
+              "gluten_free": true,
+              "lactose_free": true
+            },
+            "id": "call_01a1ac61b8387602af733d1d",
+            "type": "tool_call"
+          }
+        ],
+        "additional_kwargs": {
+          "refusal": null
+        }
+      },
+      "usage": {
+        "input": 994,
+        "output": 98,
+        "total": 1092,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "54364c00a8948922",
+      "usageDetails": {
+        "input": 226,
+        "output": 98,
+        "total": 1092,
+        "input_audio": 0,
+        "input_cache_read": 768,
+        "input_cache_creation": 0,
+        "output_audio": 0,
+        "output_reasoning": 0
+      },
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.123,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.370Z",
+      "unit": "TOKENS",
+      "promptTokens": 994,
+      "completionTokens": 98,
+      "totalTokens": 1092,
+      "completionStartTime": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "86ccf7a1deed64f2",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "TOOL",
+      "name": "food_search",
+      "startTime": "2026-11-05T15:44:08.074000Z",
+      "endTime": "2026-11-05T15:44:08.075000Z",
+      "modelParameters": {},
+      "input": {
+        "gluten_free": true,
+        "lactose_free": true
+      },
+      "metadata": {
+        "tags": [
+          "seq:step:1"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 7,
+        "langgraph_node": "tools",
+        "langgraph_triggers": [
+          "__pregel_push"
+        ],
+        "langgraph_path": [
+          "__pregel_push",
+          1,
+          false
+        ],
+        "langgraph_checkpoint_ns": "tools:2232b2f3-1d0e-324f-924b-f4f0ecd7059e",
+        "checkpoint_ns": "tools:2232b2f3-1d0e-324f-924b-f4f0ecd7059e",
+        "color": "green",
+        "tool_call_id": "call_01a1ac61b8387602af733d1d",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": {
+        "content": "buckwheat, quinoa, millet, amaranth, teff, sorghum, tapioca, cassava flour, arrowroot, chickpea flour, polenta, corn tortilla, rice noodles, glass noodles, rice paper, tamari, psyllium husk, sago, parmesan, lactose-free milk, almond milk",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "food_search",
+        "id": null,
+        "tool_call_id": "call_01a1ac61b8387602af733d1d",
+        "artifact": null,
+        "status": "success"
+      },
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "bb7463c09702fbb9",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 0.001,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.369Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    },
+    {
+      "id": "54364c00a8948922",
+      "traceId": "fa903128e185331aec4510c2a18be5af",
+      "type": "CHAIN",
+      "name": "model",
+      "startTime": "2026-11-05T15:44:06.943000Z",
+      "endTime": "2026-11-05T15:44:08.069000Z",
+      "modelParameters": {},
+      "input": {
+        "messages": [
+          {
+            "content": "Как меня зовут и какие у меня ограничения?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "3f96e8f6-261f-4460-9c70-e0d89444e2a7"
+          },
+          {
+            "content": "Вас зовут Иван. Ваши ограничения по питанию:\n\n- **Без глютена** (gluten-free)\n- **Без лактозы** (lactose-free)\n- Веганство — не указано (не ограничение)\n\nЕсли хотите, я могу подобрать подходящие продукты с учётом этих ограничений.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 81,
+                "prompt_tokens": 890,
+                "total_tokens": 971,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 768,
+                  "video_tokens": 0
+                },
+                "server_tool_use": null,
+                "cost_rub": 0.00686146,
+                "cost": 0.00686146,
+                "plugins": null
+              },
+              "model_provider": "openai",
+              "model_name": "deepseek/deepseek-v4.1-flash",
+              "system_fingerprint": null,
+              "id": "gen_2229647728392409089",
+              "finish_reason": "stop",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a1ac60-795f-7598-9f8b-b077eb832279-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 890,
+              "output_tokens": 81,
+              "total_tokens": 971,
+              "input_token_details": {
+                "audio": 0,
+                "cache_creation": 0,
+                "cache_read": 768
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "Найди мои сохранённые предпочтения через search_memories с пустым запросом, затем подбери мне продукты с учётом ограничений.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "7482f5a7-6e51-428d-a18f-feb66676b8c2"
+          }
+        ]
+      },
+      "metadata": {
+        "tags": [
+          "graph:step:6"
+        ],
+        "ls_integration": "langchain_create_agent",
+        "thread_id": "session05-65e6b8b1:second",
+        "langgraph_step": 6,
+        "langgraph_node": "model",
+        "langgraph_triggers": [
+          "branch:to:model"
+        ],
+        "langgraph_path": [
+          "__pregel_pull",
+          "model"
+        ],
+        "langgraph_checkpoint_ns": "model:da797a22-0ccf-5b67-994f-99eafc599e7b",
+        "resourceAttributes": {
+          "telemetry.sdk.language": "python",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.version": "1.45.2",
+          "service.instance.id": "9fbe6acb-f750-4584-a993-c7fc7d1982ec",
+          "service.name": "unknown_service:python"
+        },
+        "scope": {
+          "name": "langfuse-sdk",
+          "version": "4.15.4",
+          "attributes": {
+            "public_key": "pk-lf-0d075855596170dd"
+          }
+        }
+      },
+      "output": [
+        {
+          "graph": null,
+          "update": {
+            "messages": [
+              {
+                "content": "I'll search your saved memories and then find suitable products.",
+                "additional_kwargs": {
+                  "refusal": null
+                },
+                "response_metadata": {
+                  "token_usage": {
+                    "completion_tokens": 98,
+                    "prompt_tokens": 994,
+                    "total_tokens": 1092,
+                    "completion_tokens_details": {
+                      "accepted_prediction_tokens": null,
+                      "audio_tokens": 0,
+                      "reasoning_tokens": 0,
+                      "rejected_prediction_tokens": null,
+                      "image_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                      "audio_tokens": 0,
+                      "cache_write_tokens": 0,
+                      "cached_tokens": 768,
+                      "video_tokens": 0
+                    },
+                    "server_tool_use": null,
+                    "cost_rub": 0.02179644,
+                    "cost": 0.02179644,
+                    "plugins": null
+                  },
+                  "model_provider": "openai",
+                  "model_name": "deepseek/deepseek-v4.1-flash",
+                  "system_fingerprint": null,
+                  "id": "gen_2229647740117061633",
+                  "finish_reason": "tool_calls",
+                  "logprobs": null
+                },
+                "type": "ai",
+                "name": null,
+                "id": "lc_run--01a1ac61-b521-706d-851b-4463705e75e6-0",
+                "tool_calls": [
+                  {
+                    "name": "search_memories",
+                    "args": {
+                      "query": ""
+                    },
+                    "id": "call_01a1ac61b7d07540a7238668",
+                    "type": "tool_call"
+                  },
+                  {
+                    "name": "food_search",
+                    "args": {
+                      "gluten_free": true,
+                      "lactose_free": true
+                    },
+                    "id": "call_01a1ac61b8387602af733d1d",
+                    "type": "tool_call"
+                  }
+                ],
+                "invalid_tool_calls": [],
+                "usage_metadata": {
+                  "input_tokens": 994,
+                  "output_tokens": 98,
+                  "total_tokens": 1092,
+                  "input_token_details": {
+                    "audio": 0,
+                    "cache_read": 768,
+                    "cache_creation": 0
+                  },
+                  "output_token_details": {
+                    "audio": 0,
+                    "reasoning": 0
+                  }
+                }
+              }
+            ]
+          },
+          "resume": null,
+          "goto": []
+        }
+      ],
+      "usage": {
+        "input": 0,
+        "output": 0,
+        "total": 0,
+        "unit": "TOKENS"
+      },
+      "level": "DEFAULT",
+      "parentObservationId": "1b1733049af96df0",
+      "usageDetails": {},
+      "costDetails": {},
+      "environment": "default",
+      "inputPrice": 0.0,
+      "outputPrice": 0.0,
+      "totalPrice": 0.0,
+      "calculatedTotalCost": 0.0,
+      "latency": 1.126,
+      "projectId": "assistant",
+      "createdAt": "2026-11-05T15:44:11.325Z",
+      "updatedAt": "2026-11-05T15:44:11.362Z",
+      "unit": "TOKENS",
+      "promptTokens": 0,
+      "completionTokens": 0,
+      "totalTokens": 0,
+      "completionStartTime": null,
+      "model": null,
+      "version": null,
+      "statusMessage": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "modelId": null,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "timeToFirstToken": null,
+      "usagePricingTierId": null,
+      "usagePricingTierName": null
+    }
+  ],
+  "scores": [],
+  "projectId": "assistant",
+  "bookmarked": false,
+  "createdAt": "2026-11-05T15:44:11.898Z",
+  "updatedAt": "2026-11-05T15:44:11.923Z",
+  "input": null,
+  "output": null,
+  "sessionId": null,
+  "release": null,
+  "version": null,
+  "userId": null,
+  "externalId": null
+}
